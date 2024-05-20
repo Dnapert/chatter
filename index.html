@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatter</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="chatbox">
+      <div id="chatlog">
+      </div>
+      <select name="model" id="model" default="llama3">
+        <option value="llama3">llama3</option>
+        <option value="llama2">llama2</option>
+        <option value="llama2-uncensored">llama2-uncensored</option>
+        <option value="mistral">Mistral</option>
+      </select>
+      <div id="prompt-box">
+        <textarea class="scroll-hidden" name="prompt" id="prompt" rows="1" ></textarea>
+        <button class="submit-button" id="chat">Submit</button>
+      </div>
+    </div>
+    <div id="console-toggle">
+      <button id="toggle-console">Control Panel</button>
+    </div>
+    <div id="console">
+      <div id="sliders">
+      <label for="temperature">Temperature</label>
+      <input type="range" min="0" max="100" value="80" class="slider" id="temperature" oninput="this.nextElementSibling.value = this.value">
+      <output>80</output>
+      <input type="range" min="500" max="7000" value="4000" class="slider" id="context-length" oninput="this.nextElementSibling.value = this.value">
+      <output>4000</output>
+      <label for="context-length">Context Length</label>
+    </div>
+    <div id="stats-container">
+     <p id="eval-speed" class="stats"></p>
+      <p id="eval-count" class="stats"></p>
+      <p id="current-context-length" class="stats"></p>
+    </div>
+    </div>
+    
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
